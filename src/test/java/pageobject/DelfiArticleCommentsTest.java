@@ -1,3 +1,7 @@
+package pageobject;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,35 +11,35 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobject.pages.BaseFunc;
+import pageobject.pages.HomePage;
 
 import java.util.List;
 
 public class DelfiArticleCommentsTest {
-    private final By ACCEPT_COOKIE_BTN = By.xpath(".//button[@mode = 'primary']");
-    private final By HOME_PAGE_TITLE = By.xpath(".//h1[contains(@class, 'headline__title')]");
-    private final By HOME_PAGE_ARTICLE = By.tagName("article");
-    private final By HOME_PAGE_COMMENTS = By.xpath(".//a[contains(@class, 'comment-count')]");
 
-    private final By ARTICLE_PAGE_TITLE = By.xpath(".//h1[contains(@class, 'text-size-md-30')]");
-    private final By ARTICLE_PAGE_COMMENTS = By.xpath(".//a[contains(@class, 'text-size-md-28')]");
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
     private WebDriver driver;
 
     @Test
     public void titleAndCommentsCountCheck() {
-        System.setProperty("webdriver.chrome.driver", "c://chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        LOGGER.info("This test is checking titles and comments count on home/article/comments pages.");
 
-        driver.get("http://delfi.lv");
+        BaseFunc baseFunc = new BaseFunc();
+        baseFunc.openPage("delfi.lv");
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(ACCEPT_COOKIE_BTN));
+        //--------------- Home Page --------------------
+        HomePage homePage = new HomePage(baseFunc);
+        homePage.acceptCookies();
+    }
+}
 
-        driver.findElement(ACCEPT_COOKIE_BTN).click();
 
+
+ /*
         List<WebElement> articles = driver.findElements(HOME_PAGE_ARTICLE);
-        WebElement article = articles.get(2);
+        WebElement article = articles.get(4);
 
         String homePageTitle = article.findElement(HOME_PAGE_TITLE).getText();
         int homePageCommentsCount = getCommentsCount(article, HOME_PAGE_COMMENTS);
@@ -44,6 +48,7 @@ public class DelfiArticleCommentsTest {
 
         String articlePageTitle = driver.findElement(ARTICLE_PAGE_TITLE).getText();
         int articlePageCommentsCount = getCommentsCount(ARTICLE_PAGE_COMMENTS);
+        LOGGER.info("Title is: " + homePageTitle + " and comments count is: " + homePageCommentsCount);
 
         Assertions.assertEquals(homePageTitle, articlePageTitle, "Wrong title!");
         Assertions.assertEquals(homePageCommentsCount, articlePageCommentsCount, "Wrong comments count!");
@@ -75,8 +80,10 @@ public class DelfiArticleCommentsTest {
     public void closeBrowser() {
         driver.close();
     }
-}
 
+
+}
+*/
 
 /*        // for
         for (int i = 0; i < titles.size(); i++) {

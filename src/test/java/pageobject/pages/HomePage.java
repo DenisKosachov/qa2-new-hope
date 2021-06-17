@@ -56,5 +56,4 @@ public class HomePage {
         baseFunc.click(getArticleById(id));
         return new ArticlePage(baseFunc);
     }
-
 }

@@ -12,7 +12,7 @@ import pageobject.pages.HomePage;
 public class DelfiArticleCommentsTest {
 
     private final Logger LOGGER = LogManager.getLogger(this.getClass());
-    private final int ARTICLE_ID = 4;
+    private final int ARTICLE_ID = 1;
 
     private BaseFunc baseFunc;
 

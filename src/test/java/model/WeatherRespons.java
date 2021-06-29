@@ -2,6 +2,7 @@ package model;
 
 public class WeatherRespons {
     private Coord coord;
+    private Weather weather;
     private String base;
     private Main main;
     private Integer visibility;
@@ -13,9 +14,7 @@ public class WeatherRespons {
     private String name;
     private int cod;
 
-    public Integer getVisibility() {
-        return visibility;
-    }
+    public Integer getVisibility() { return visibility; }
 
     public void setVisibility(Integer visibility) {
         this.visibility = visibility;
@@ -100,4 +99,8 @@ public class WeatherRespons {
     public void setBase(String base) {
         this.base = base;
     }
+
+    public Weather getWeather() { return weather; }
+
+    public void setWeather(Weather weather) { this.weather = weather; }
 }

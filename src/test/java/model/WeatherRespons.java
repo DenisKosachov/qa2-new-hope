@@ -1,14 +1,21 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherRespons {
     private Coord coord;
-    private Weather weather;
+    @JsonProperty("weather")
+    private List<Weather> weathers;
     private String base;
     private Main main;
     private Integer visibility;
     private Wind wind;
     private Clouds clouds;
-    private Integer dt; // какой тип переменой? значение: 1485790200
+    private long dt;
     private Sys sys;
     private Integer id;
     private String name;
@@ -36,11 +43,9 @@ public class WeatherRespons {
         this.clouds = clouds;
     }
 
-    public Integer getDt() {
-        return dt;
-    }
+    public long getDt() { return dt; }
 
-    public void setDt(Integer dt) {
+    public void setDt(long dt) {
         this.dt = dt;
     }
 
@@ -52,9 +57,7 @@ public class WeatherRespons {
         this.sys = sys;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
     public void setId(Integer id) {
         this.id = id;
@@ -100,7 +103,7 @@ public class WeatherRespons {
         this.base = base;
     }
 
-    public Weather getWeather() { return weather; }
+    public List<Weather> getWeathers() { return weathers; }
 
-    public void setWeather(Weather weather) { this.weather = weather; }
+    public void setWeathers(List<Weather> weathers) { this.weathers = weathers; }
 }

@@ -6,10 +6,10 @@ Feature: Testing weather endpoint
     | lon | 145.77 |
     | lat | -16.92 |
 
-    And weather are:
+    And weathers are:
     | id  | main   | description      | icon |
     | 802 | clouds | scattered clouds | 03n  |
-    | 750 | sun    | no clouds        | 01n  |
+   # | 750 | sun    | no clouds        | 01n  |
 
     And base is "stations"
     And main are:
@@ -32,7 +32,7 @@ Feature: Testing weather endpoint
     | type    | 1          |
     | id      | 8166       |
     | message | 0.2064     |
-    | country | "AU"       |
+    | country | AU         |
     | sunrise | 1485720272 |
     | sunset  | 1485766550 |
 

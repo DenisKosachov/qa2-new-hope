@@ -2,10 +2,11 @@ package model;
 
 public class Sys {
     private int type;
-    private Integer id;
+    private long id;
     private double message;
     private String country;
-    private Integer sunrise;
+    private long sunrise;
+    private long sunset;
 
     public int getType() {
         return type;
@@ -15,11 +16,11 @@ public class Sys {
         this.type = type;
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -39,21 +40,19 @@ public class Sys {
         this.country = country;
     }
 
-    public Integer getSunrise() {
+    public long getSunrise() {
         return sunrise;
     }
 
-    public void setSunrise(Integer sunrise) {
+    public void setSunrise(long sunrise) {
         this.sunrise = sunrise;
     }
 
-    public Integer getSunset() {
+    public long getSunset() {
         return sunset;
     }
 
-    public void setSunset(Integer sunset) {
+    public void setSunset(long sunset) {
         this.sunset = sunset;
     }
-
-    private Integer sunset;
 }

@@ -60,6 +60,10 @@ public class BaseFunc {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
 
+    public String getText(By parent, By child) {
+        return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(parent, child)).getText();
+    }
+
     public List<WebElement> findElements(WebElement parent, By child) {
         LOGGER.info("Getting all child elements");
         return parent.findElements(child);
